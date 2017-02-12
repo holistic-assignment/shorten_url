@@ -7,7 +7,6 @@ class ShortLinksController < ApplicationController
   end
 
   def redirect
-
     redirect_to @shortlink.url
   end
 
@@ -49,7 +48,6 @@ class ShortLinksController < ApplicationController
   def log_track
     @shortlink = ShortLink.find_by(unique_key: params[:id])
     unless request.location.country.empty?
-      binding.pry
       @shortlink.tracks.create(ip_address: request.remote_ip, user_id: current_user.nil? ? nil : current_user.id, country: request.location.country)
     else
       @shortlink.tracks.create(ip_address: request.remote_ip, user_id: current_user.nil? ? nil : current_user.id)
