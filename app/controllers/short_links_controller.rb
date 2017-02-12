@@ -1,5 +1,6 @@
 class ShortLinksController < ApplicationController
-  before_action :log_track, :only=> [:redirect]
+  before_action :log_track, :only => [:redirect]
+
   def show
     @shortlink = ShortLink.find(params[:id])
 
@@ -47,6 +48,11 @@ class ShortLinksController < ApplicationController
 
   def log_track
     @shortlink = ShortLink.find_by(unique_key: params[:id])
-    @shortlink.tracks.create(ip_address: request.remote_ip,user_id: current_user.nil? ? nil:current_user.id)
+    unless request.location.data["country_name"].empty?
+      binding.pry
+      @shortlink.tracks.create(ip_address: request.remote_ip, user_id: current_user.nil? ? nil : current_user.id, country: request.location.data["country_name"])
+    else
+      @shortlink.tracks.create(ip_address: request.remote_ip, user_id: current_user.nil? ? nil : current_user.id)
+    end
   end
 end

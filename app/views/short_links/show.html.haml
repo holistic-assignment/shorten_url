@@ -1,12 +1,15 @@
 %b Short Link
 %br
-  %a=root_url+@shortlink.unique_key
+  %a{:href=>root_url+@shortlink.unique_key} Click here
 %br
   %b Daily hits for the last 30 days
 = line_chart @shortlink.tracks.get_30_day_ago.group_by_day(:created_at).count
 %br
   %b Weekly hits for the last 4 weeks
-= line_chart @shortlink.tracks.group_by_week(:created_at,last:4).count
+= line_chart @shortlink.tracks.group_by_week(:created_at,last:4).count\
+%br
+  %b Country
+= pie_chart @shortlink.tracks.group(:country).size
 %table
   %tr
     %td
