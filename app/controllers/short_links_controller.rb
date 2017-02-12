@@ -47,10 +47,12 @@ class ShortLinksController < ApplicationController
 
   def log_track
     @shortlink = ShortLink.find_by(unique_key: params[:id])
-    unless request.location.country.empty?
-      @shortlink.tracks.create(ip_address: request.remote_ip, user_id: current_user.nil? ? nil : current_user.id, country: request.location.country)
-    else
-      @shortlink.tracks.create(ip_address: request.remote_ip, user_id: current_user.nil? ? nil : current_user.id)
+    unless request.location.nil?
+      unless request.location.country.empty?
+        @shortlink.tracks.create(ip_address: request.remote_ip, user_id: current_user.nil? ? nil : current_user.id, country: request.location.country)
+      else
+        @shortlink.tracks.create(ip_address: request.remote_ip, user_id: current_user.nil? ? nil : current_user.id)
+      end
     end
   end
 end
