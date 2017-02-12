@@ -1,0 +1,15 @@
+.row
+  .col-xs-8.col-xs-offset-2
+    .jumbotron.jumbotron-fluid{:style => "background-color: #563d7c; color: #fff"}
+      %h1.display-3.text-xs-center Sign up
+      %p.lead.text-xs-center{:style => "color:#cdbfe3"}
+
+= simple_form_for @user do |f|
+  .row
+    .col-xs-8.col-xs-offset-2
+      = f.input :username, label: "Name:"
+      = f.input :email, label: "Email:"
+      = f.input :password, label: "Password:"
+      = f.input :password_confirmation, label: "Confirm:"
+      .text-xs-center
+        = f.button :submit, "Register", class: "btn btn-secondary btn-block"

@@ -1,0 +1,26 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title ShortenUrl
+    = csrf_meta_tags
+    = javascript_include_tag "https://www.gstatic.com/charts/loader.js"
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+  %body
+    .container
+      .row
+        %ul.nav.pull-right.navbar-nav
+
+          -unless logged_in?
+            %li.nav-item
+              %a.nav-link.sign_up{:href => "#{a_sign_up_path}"} Sign Up
+            %li.nav-item
+              %a.nav-link.sign_in{:href => "#{a_sign_in_path}"} Sign In
+          -else
+            %li.nav-item
+              %a.nav-link.sign_up{:href => "#"}=current_user.username
+            %li.nav-item
+              =link_to "Log out", a_sign_out_path, method: :delete,class: "nav-link sign_in"
+      .row
+        = yield

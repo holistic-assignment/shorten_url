@@ -1,0 +1,22 @@
+%b Short Link
+%br
+  %a=root_url+@shortlink.unique_key
+%br
+  %b Daily hits for the last 30 days
+= line_chart @shortlink.tracks.get_30_day_ago.group_by_day(:created_at).count
+%br
+  %b Weekly hits for the last 4 weeks
+= line_chart @shortlink.tracks.group_by_week(:created_at,last:4).count
+%table
+  %tr
+    %td
+      %b Total hit
+    %td=@shortlink.total_count
+  %tr
+    %td
+      %b Ip hit
+    %td=@shortlink.url_filter_by_ip
+  %tr
+    %td
+      %b User hit
+    %td=@shortlink.url_filter_by_user
