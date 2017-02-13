@@ -33,7 +33,7 @@ The following **required** functionality is complete:
 ## Video Walkthrough 
 
 Here's a walkthrough of implemented user stories:
-[Imgur](http://imgur.com/a/1Nzb0)
+![](http://i.imgur.com/VWbkFAN.gifv)
 
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
