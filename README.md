@@ -1,24 +1,59 @@
-# README
+# Holistic Assignment- *Shorten url*
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+**Shorten url** is a Ruby on Rails blog application that allows users to shorten url.
 
-Things you may want to cover:
+Submitted by: **Nguyen Tran**
 
-* Ruby version
+Time spent: **20** hours
 
-* System dependencies
+URL: **https://shorten-url-assignment.herokuapp.com**
 
-* Configuration
+## User Stories
 
-* Database creation
+The following **required** functionality is complete:
 
-* Database initialization
 
-* How to run the test suite
+* [x] User can sign up by providing their email, password, and name. 
+* [x] User can login using an email and password. 
+* [x] User vitsitor 2 type (guest, user)
+* [x] Total count by click
+* [x] Count when different ip
+* [x] Count when different user login
+* [x] Count by country
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
+**Gemfile**:
 
-* ...
+* [x] Factory, faker (generate data)
+* [x] Chartkick (make a chart)
+* [x] Rails-haml 
+
+
+
+## Video Walkthrough 
+
+Here's a walkthrough of implemented user stories:
+[Imgur](http://imgur.com/a/1Nzb0)
+
+
+GIF created with [LiceCap](http://www.cockos.com/licecap/).
+
+## Notes
+
+Describe any challenges encountered while building the app.
+
+## License
+
+    Copyright [yyyy] [name of copyright owner]
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
