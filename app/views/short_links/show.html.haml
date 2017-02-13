@@ -1,6 +1,6 @@
 %b Short Link
 %br
-  %a{:href=>root_url+@shortlink.unique_key} Click here
+  %a{:href=>root_url+@shortlink.unique_key, :target=>"_blank"} Click here
 %br
   %b Daily hits for the last 30 days
 = line_chart @shortlink.tracks.get_30_day_ago.group_by_day(:created_at).count
